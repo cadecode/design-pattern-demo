@@ -15,6 +15,7 @@
         <module>single</module>
         <module>prototype</module>
         <module>factory</module>
+        <module>strategy</module>
     </modules>
 
     <dependencies>
