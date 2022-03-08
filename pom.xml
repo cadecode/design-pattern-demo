@@ -16,6 +16,7 @@
         <module>prototype</module>
         <module>factory</module>
         <module>strategy</module>
+        <module>observer</module>
     </modules>
 
     <dependencies>
