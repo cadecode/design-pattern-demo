@@ -18,6 +18,7 @@
         <module>strategy</module>
         <module>observer</module>
         <module>template</module>
+        <module>state</module>
     </modules>
 
     <dependencies>
