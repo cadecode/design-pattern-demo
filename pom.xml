@@ -20,6 +20,7 @@
         <module>template</module>
         <module>state</module>
         <module>adapter</module>
+        <module>proxy</module>
     </modules>
 
     <dependencies>
