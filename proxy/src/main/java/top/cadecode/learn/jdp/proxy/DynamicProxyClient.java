@@ -33,7 +33,7 @@ public class DynamicProxyClient implements InvocationHandler {
      */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        seeHorse();
+        seeHouse();
         signContract();
         takeMoney();
         // 传入维护的 rentOuter（注意不是 proxy）
@@ -41,7 +41,7 @@ public class DynamicProxyClient implements InvocationHandler {
     }
 
 
-    private void seeHorse() {
+    private void seeHouse() {
         System.out.println("中介带看房");
     }
 

@@ -36,14 +36,14 @@ public class CglibProxyClient implements MethodInterceptor {
      */
     @Override
     public Object intercept(Object o, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
-        seeHorse();
+        seeHouse();
         signContract();
         takeMoney();
         // 调用生成代理的父类方法
         return methodProxy.invokeSuper(o, args);
     }
 
-    private void seeHorse() {
+    private void seeHouse() {
         System.out.println("中介带看房");
     }
 

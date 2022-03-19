@@ -14,13 +14,13 @@ public class StaticProxyClient implements RentOuter {
 
     @Override
     public void rentOut() {
-        seeHorse();
+        seeHouse();
         signContract();
         takeMoney();
         rentOuter.rentOut();
     }
 
-    private void seeHorse() {
+    private void seeHouse() {
         System.out.println("中介带看房");
     }
 
