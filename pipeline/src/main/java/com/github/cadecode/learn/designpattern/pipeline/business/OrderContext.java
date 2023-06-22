@@ -18,6 +18,8 @@ import lombok.ToString;
 @ToString
 public class OrderContext extends AbstractBizContext {
 
+    private boolean continueChain = true;
+
     private OrderParam param;
 
     private OrderModel model;
@@ -29,7 +31,6 @@ public class OrderContext extends AbstractBizContext {
 
     @Override
     public boolean continueChain() {
-        return true;
+        return continueChain;
     }
-
 }

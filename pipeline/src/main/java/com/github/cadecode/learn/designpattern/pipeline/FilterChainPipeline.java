@@ -26,7 +26,7 @@ public class FilterChainPipeline<T extends BizFilter<A>, A extends BizContext> {
             lastChain = firstChain;
             return;
         }
-        lastChain.setNextChain(newChain);
+        lastChain.setNext(newChain);
         lastChain = newChain;
     }
 

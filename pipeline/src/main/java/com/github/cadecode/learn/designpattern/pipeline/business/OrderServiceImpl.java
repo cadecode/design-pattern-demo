@@ -2,10 +2,7 @@ package com.github.cadecode.learn.designpattern.pipeline.business;
 
 import com.github.cadecode.learn.designpattern.pipeline.BizFilterChain;
 import com.github.cadecode.learn.designpattern.pipeline.business.enums.OrderCodeEnum;
-import com.github.cadecode.learn.designpattern.pipeline.selector.LocalListFilterSelector;
-
-import java.util.Arrays;
-import java.util.List;
+import com.github.cadecode.learn.designpattern.pipeline.selector.FilterSelector;
 
 /**
  * 订单服务实现
@@ -19,17 +16,17 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     public void placeOrder(OrderParam orderParam) {
-        // 需要启用的 filter
-        List<String> filterNames = Arrays.asList(
-                "QueryInfoFilter",
-                "SaveInfoFilter"
-        );
-        LocalListFilterSelector filterSelector = new LocalListFilterSelector(filterNames);
+        FilterSelector filterSelector = OrderFilterSelectorFactory.getFilterSelector(OrderCodeEnum.PLACE_ORDER);
         // 订单上下文，业务是 PLACE_ORDER
         OrderContext orderContext = new OrderContext(OrderCodeEnum.PLACE_ORDER, filterSelector);
         orderContext.setParam(orderParam);
         // 开始责任链处理
         BizFilterChain<OrderContext> filterChain = OrderPipelineConfig.pipeline().getFilterChain();
-        filterChain.handle(orderContext);
+        filterChain.filter(orderContext);
+        // 获取经过处理后的 model
+        OrderModel model = orderContext.getModel();
+        System.out.println("---------------------");
+        System.out.println("获取经过责任链处理的上下文, " + model);
+        // 后续可配合策略根据 model 选择性处理
     }
 }
