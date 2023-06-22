@@ -10,7 +10,7 @@ import com.github.cadecode.learn.designpattern.pipeline.context.BizContext;
  */
 public interface BizFilterChain<T extends BizContext> {
 
-    void handle(T context);
+    void filter(T context);
 
     void next(T context);
 }

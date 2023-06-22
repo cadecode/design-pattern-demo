@@ -10,6 +10,9 @@ import com.github.cadecode.learn.designpattern.pipeline.context.BizContext;
  */
 public abstract class AbstractBizFilter<T extends BizContext> implements BizFilter<T> {
 
+    /**
+     * 过滤方法模板
+     */
     @Override
     public void doFilter(T context, BizFilterChain<T> filterChain) {
         // 如果包含该 filter
@@ -21,5 +24,8 @@ public abstract class AbstractBizFilter<T extends BizContext> implements BizFilt
         }
     }
 
+    /**
+     * 过滤处理主逻辑
+     */
     public abstract void handle(T context);
 }

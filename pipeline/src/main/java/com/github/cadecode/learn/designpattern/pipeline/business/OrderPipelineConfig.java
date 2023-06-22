@@ -2,8 +2,10 @@ package com.github.cadecode.learn.designpattern.pipeline.business;
 
 import com.github.cadecode.learn.designpattern.pipeline.BizFilter;
 import com.github.cadecode.learn.designpattern.pipeline.FilterChainPipeline;
-import com.github.cadecode.learn.designpattern.pipeline.business.filter.QueryInfoFilter;
-import com.github.cadecode.learn.designpattern.pipeline.business.filter.SaveInfoFilter;
+import com.github.cadecode.learn.designpattern.pipeline.business.filter.CheckOrderFilter;
+import com.github.cadecode.learn.designpattern.pipeline.business.filter.QueryOrderFilter;
+import com.github.cadecode.learn.designpattern.pipeline.business.filter.SaveOrderFilter;
+import com.github.cadecode.learn.designpattern.pipeline.business.filter.UserPayWayFilter;
 
 /**
  * 订单业务 pipeline 单例类
@@ -28,8 +30,10 @@ public class OrderPipelineConfig {
 
         static {
             PIPELINE = new FilterChainPipeline<>();
-            PIPELINE.addFilter(new QueryInfoFilter());
-            PIPELINE.addFilter(new SaveInfoFilter());
+            PIPELINE.addFilter(new SaveOrderFilter());
+            PIPELINE.addFilter(new QueryOrderFilter());
+            PIPELINE.addFilter(new CheckOrderFilter());
+            PIPELINE.addFilter(new UserPayWayFilter());
         }
 
     }
